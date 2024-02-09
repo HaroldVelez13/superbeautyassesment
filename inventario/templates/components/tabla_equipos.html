@@ -1,0 +1,24 @@
+{% if equipo_list %}
+
+<table class="table table-striped">
+    <thead>
+        <tr class="table-dark">
+            <th scope="col"><i class="bi bi-file-earmark-binary-fill"></i> Referencia</th>
+            <th scope="col"><i class="bi bi-book-half"></i> Marca</th>
+            <th scope="col"><i class="bi bi-tag-fill"></i> Tipo</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for equipo in equipo_list %}
+        <tr>
+            <td>{{equipo.referencia}}</td>
+            <td>{{equipo.marca}}</td>
+            <td>{{equipo.tipo}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% if is_paginated %}{% include 'components/pagination.html' %}{% endif %}
+{% else %}
+<p>No hay equipos registrados.</p>
+{% endif %}
